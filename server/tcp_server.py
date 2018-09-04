@@ -20,6 +20,9 @@ tcpSerSock.bind(ADDR)    # Bind the IP address and port number of the server.
 tcpSerSock.listen(5)     # The parameter of listen() defines the number of connections permitted at one time. Once the 
                          # connections are full, others will be rejected. 
 
+
+# What are we doing here?
+# Setup video direction, car direction, motor drive.
 video_dir.setup(busnum=busnum)
 car_dir.setup(busnum=busnum)
 motor.setup(busnum=busnum)     # Initialize the Raspberry Pi GPIO connected to the DC motor. 

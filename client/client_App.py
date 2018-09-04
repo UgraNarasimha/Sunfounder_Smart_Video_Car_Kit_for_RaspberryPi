@@ -6,7 +6,7 @@ from socket import *      # Import necessary modules
 ctrl_cmd = ['forward', 'backward', 'left', 'right', 'stop', 'read cpu_temp', 'home', 'distance', 'x+', 'x-', 'y+', 'y-', 'xy_home']
 
 top = Tk()   # Create a top window
-top.title('Sunfounder Raspberry Pi Smart Video Car')
+top.title('Supreeth Raspberry Pi Buggy')
 
 HOST = '192.168.0.147'    # Server(Raspberry Pi) IP address
 PORT = 21567
@@ -81,7 +81,7 @@ Btn1 = Button(top, width=5, text='Backward')
 Btn2 = Button(top, width=5, text='Left')
 Btn3 = Button(top, width=5, text='Right')
 Btn4 = Button(top, width=5, text='Quit')
-Btn5 = Button(top, width=5, height=2, text='Home')
+Btn5 = Button(top, width=5, height=2, text='Reset')
 
 # =============================================================================
 # Buttons layout
