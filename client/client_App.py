@@ -74,6 +74,22 @@ def quit_fun(event):
 	tcpCliSock.close()
 
 # =============================================================================
+# For DistanceToTravelInMeters: Gets the result from Entry and saves it to buggyGoSomanyMeters
+# #TODO:Jharna: add validation for entered data
+# =============================================================================
+def distanceEntry_func(arg=None):
+    try:
+      result = Textbox1DistToTravelInM.get()
+    except:
+      result = 0
+    #resultOutLabel.config(text=result)
+    Textbox1DistToTravelInM.delete(0, END)
+    buggyGoSomanyMeters = int(result)
+    print "buggyGoSomanyMeters is : " + str(buggyGoSomanyMeters)
+    #TODO: send the command to actually go ahead
+
+
+# =============================================================================
 # Create buttons
 # =============================================================================
 Btn0 = Button(top, width=5, text='Forward')
@@ -82,6 +98,11 @@ Btn2 = Button(top, width=5, text='Left')
 Btn3 = Button(top, width=5, text='Right')
 Btn4 = Button(top, width=5, text='Quit')
 Btn5 = Button(top, width=5, height=2, text='Reset')
+
+#For the text box
+VarDistToTravelInM = StringVar()
+Textbox1DistToTravelInM = Entry(top, width=15, textvariable=VarDistToTravelInM)
+Label2 = Label(top, text='Distance to travel in m:', fg='red')  # Create a label
 
 # =============================================================================
 # Buttons layout
@@ -92,6 +113,9 @@ Btn2.grid(row=1,column=0)
 Btn3.grid(row=1,column=2)
 Btn4.grid(row=3,column=2)
 Btn5.grid(row=1,column=1)
+Textbox1DistToTravelInM.grid(row=6,column=5)
+Label2.grid(row=4, column=5)
+
 
 # =============================================================================
 # Bind the buttons with the corresponding callback function.
@@ -106,6 +130,7 @@ Btn2.bind('<ButtonRelease-1>', stop_fun)
 Btn3.bind('<ButtonRelease-1>', stop_fun)
 Btn4.bind('<ButtonRelease-1>', quit_fun)
 Btn5.bind('<ButtonRelease-1>', home_fun)
+Textbox1DistToTravelInM.bind("<Return>",distanceEntry_func) #Jharna:distanceEntry_func() will retrieve the input data 
 
 # =============================================================================
 # Create buttons
